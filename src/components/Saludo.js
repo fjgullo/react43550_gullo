@@ -3,8 +3,8 @@ const Saludo = ( {name, lastname, age, action} ) => {
 
     const title = {
         border: 'solid blue 2px',
-        margin: '20px',
-        padding: '20px'
+        margin: '21px',
+        padding: '21px'
     }
 
    
