@@ -5,7 +5,13 @@ export const NavBar = () => {
   return (
     <div className="navbar bg-base-100">
   <div className="flex-1">
-    <Link to='' className="btn btn-ghost normal-case text-xl">AppleStore</Link>
+    <Link to='' className="btn btn-ghost normal-case text-xl">Home</Link>
+  </div>
+  <div className="flex-1">
+    <Link to="/category/1" className="btn btn-ghost normal-case text-xl">Laptops</Link>
+  </div>
+  <div className="flex-1">
+    <Link to="/category/2" className="btn btn-ghost normal-case text-xl">Accesories</Link>
   </div>
   <div className="flex-none">
     <div className="dropdown dropdown-end">

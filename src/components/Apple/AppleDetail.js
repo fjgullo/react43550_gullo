@@ -13,6 +13,7 @@ const AppleDetail = () => {
 useEffect(() => {
     getItemDetail().then( res => {
         setItem( res )
+        console.log(res)
     })
 },[ id ])
 
@@ -29,6 +30,7 @@ const getItemDetail = () => {
     <div>
         <h1>Detalles del producto: { id }</h1>
         <li>{item.title}</li>
+        <li><img src={item.img}/></li>
         <li>{item.description}</li>
         <li>{item.price}</li>
         <AppleCount stock={item.stock}/>

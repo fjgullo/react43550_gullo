@@ -4,6 +4,7 @@ import ItemListContainer from './components/ItemListContainer';
 import Clicker from './components/Clicker';
 import ProductsList from './components/ProductsList';
 
+import AppleCategory from './components/Apple/AppleCategory';
 import AppleDetail from './components/Apple/AppleDetail';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -36,7 +37,8 @@ function App() {
         <Routes>
           <Route path='/' element={<AppleList/>}/>
           <Route path='/items/:id' element={<AppleDetail/>}/>
-          <Route path='/apple' element={<AppleList/>}/>
+          <Route path='/category/:id' element={<AppleCategory/>}/>
+          <Route path='/category' element={<AppleList/>}/>
           <Route path='/rick' element={<CharList/>}/>
           <Route path='/rick/:charId' element={<CharDetail/>}/>          
         </Routes>
