@@ -5,42 +5,44 @@ import { AppleCount } from './AppleCount'
 
 //const ITEM = {id: 1 , title:"Macbook Air M1", description: "Apple thinest laptop", price: 999, stock: 10}
 
-const AppleDetail = () => {
+const AppleCategory = () => {
 
     const [item, setItem] = useState([])
     const { id } = useParams()
 
     useEffect(() => {
         getItemDetail().then( res => {
-            setItem(res)
-            console.log(res)
+            setItem(res.filter(p => p.category_id == id))
         })
-    },[ id ])
+    },[id])
     
     const getItemDetail = () => {
         return new Promise( (resolve, reject) => {
-            const item = PRODUCTS.filter( p => p.category_id == id )
+            const item = PRODUCTS
             setTimeout(() => {
-                resolve( item )
+                resolve(item)
             }, 500);
         })
     }
-
   return (
-    <div>
-        <h1>Hola</h1>
-        {item.map(function(p){
-            <div>
-                <h1>Detalles del producto: { id }</h1>
-                <li>{p.title}</li>
-                <li><img src={p.img}/></li>
-                <li>{p.description}</li>
-                <li>{p.price}</li>
-                <AppleCount stock={p.stock}/>
+    <div className='flex flex-row justify-center flex-wrap'>
+               {item && item.map(p => ( 
+            <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white m-5">
+            <img class="w-full" src={p.img} alt={`Imagen del producto $(title)`}/>
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">{p.title}</div>
+              <p class="text-black-700 text-base">
+              {p.description}
+              </p>
             </div>
-        })}
+            <div class="px-6 pt-4 pb-2">
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Price: {p.price}</span>
+              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><AppleCount stock={p.stock}/></span>
+            </div>
+          </div>
+        ))}
     </div>
   )
 }
 
-export default AppleDetail
+export default AppleCategory

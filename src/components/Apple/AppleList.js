@@ -25,7 +25,7 @@ const AppleList = () => {
 
 
     return (
-        <div>
+        <div className='flex flex-row justify-center flex-wrap'>
             { items.map( i => <AppleCard key={i.id} {...i}/>) }
         </div>
     )

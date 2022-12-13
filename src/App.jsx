@@ -35,11 +35,11 @@ function App() {
      <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route path='/' element={<AppleList/>}/>
+          <Route exact path='/' element={<AppleList/>}/>
           <Route path='/items/:id' element={<AppleDetail/>}/>
+          <Route exact path='/category' element={<AppleList/>}/>
           <Route path='/category/:id' element={<AppleCategory/>}/>
-          <Route path='/category' element={<AppleList/>}/>
-          <Route path='/rick' element={<CharList/>}/>
+          <Route exact path='/rick' element={<CharList/>}/>
           <Route path='/rick/:charId' element={<CharDetail/>}/>          
         </Routes>
         <Footer/>
