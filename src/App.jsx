@@ -13,6 +13,15 @@ import AppleList from './components/Apple/AppleList';
 import Footer from './components/Footer';
 import { NavBar } from './components/NavBar';
 import CharDetail from './components/rickandmorty/CharDetail';
+import ClickEvent from './components/ClickEvent';
+import ClickChange from './components/ClickChange';
+import React, { useState } from 'react';
+import { DarkmodeContext } from './context/darkmodeContext';
+import AppleCart from './components/Apple/AppleCart';
+import { CartContext } from './context/CartContext1';
+import PokeHome from './components/pokemon/PokeHome';
+import { PokeContainer } from './components/pokemon/PokeContainer';
+import ItemsList from './components/fromfirebase/ItemsList';
 
 
 function App() {
@@ -31,22 +40,42 @@ function App() {
     console.log('juambi pt');
   }
 
+  //Darkmode
+
+const darkmodeContext = React.createContext(true)
+
+const [darkmode, setDarkmode] = useState(false)
+
+  const darkmodeToggle = () => {
+    setDarkmode(!darkmode)
+  }
+
   return (
+    <CartContext>
+    <DarkmodeContext.Provider value={darkmode}>
      <BrowserRouter>
         <NavBar/>
+        <button className='btn' onClick={darkmodeToggle}>Darkmode {darkmode ? 'on' : 'off'}</button>
         <Routes>
           <Route exact path='/' element={<AppleList/>}/>
           <Route path='/items/:id' element={<AppleDetail/>}/>
+          <Route path='/items/cart' element={<AppleCart/>}/>
           <Route exact path='/category' element={<AppleList/>}/>
           <Route path='/category/:id' element={<AppleCategory/>}/>
           <Route exact path='/rick' element={<CharList/>}/>
-          <Route path='/rick/:charId' element={<CharDetail/>}/>          
+          <Route path='/rick/:charId' element={<CharDetail/>}/>       
+          <Route path='/event' element={<ClickEvent/>}/>    
+          <Route path='/clickchange' element={<ClickChange/>}/>  
+          <Route path='/pokemon' element={<PokeHome/>}/>  
+          <Route path='/pokemon/lista' element={<PokeContainer/>}/>  
+          <Route path='/fbitems' element={<ItemsList/>}/>  
         </Routes>
         <Footer/>
         {/* <AppleList/>
         <AppleDetail/> */}
       </BrowserRouter>
-     
+    </DarkmodeContext.Provider>
+    </CartContext>     
   );
 }
 

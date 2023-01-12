@@ -26,7 +26,9 @@ export const NavBar = () => {
           <span className="font-bold text-lg">2 Items</span>
           <span className="text-info">Subtotal: $999</span>
           <div className="card-actions">
-            <button className="btn btn-primary btn-block">View cart</button>
+            <Link to='/items/cart'>
+              <button className="btn btn-primary btn-block">View cart</button>
+            </Link>
           </div>
         </div>
       </div>
