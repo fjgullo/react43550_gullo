@@ -6,6 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { CartContextProvider } from './context/cartContext';
 import { initializeApp } from "firebase/app";
 
+//Firebase keys en gitignore env.local
+// const firebaseConfig = {
+//   apiKey: process.env.REACT_APP_APIKEY,
+//   authDomain: process.env.REACT_APP_authDomain,
+//   projectId: process.env.REACT_APP_projectId,
+//   storageBucket: process.env.REACT_APP_storageBucket,
+//   messagingSenderId: process.env.REACT_APP_messagingSenderId,
+//   appId: process.env.REACT_APP_appId,
+// };
+
 //Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyD_bgXV_Sxpi9NY6kvuSQkUVfTYH4a8MiU",
