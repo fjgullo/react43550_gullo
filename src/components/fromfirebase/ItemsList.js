@@ -36,7 +36,7 @@ const getItemData = () => {
           </>
         }
 
-        {items.map( i => <li key={i.id}>{i.title} - {i.price} / stock {i.stock} </li>)}
+        {items.map( i => <li key={i.id}g>{i.title} - {i.price} - stock {i.stock} </li>)}
         
    </div>
   )
